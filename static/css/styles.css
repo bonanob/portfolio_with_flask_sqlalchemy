@@ -259,6 +259,20 @@ Projects
     margin-top: 3rem;
 }
 
+#projects h3 a {
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--primary-text);
+    text-decoration: none;
+}
+
+#projects .a-project a:hover{
+    color: var(--accent);
+}
+
 .github-btn {
     border-radius: 10px;
     background-color: var(--primary);
