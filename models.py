@@ -13,7 +13,7 @@ class Project(db.Model):
     title = db.Column("Title", db.String())
     description = db.Column("Description", db.Text)
     skills = db.Column("Skills Practiced", db.Text)
-    url = db.Column("URL", db.String())
+    url = db.Column("URL", db.Text)
 
     def __repr__(self):
         return f"""<Project (Title: {self.title}
@@ -21,5 +21,4 @@ class Project(db.Model):
                 Description: {self.description}
                 Skills Practiced: {self.skills}
                 URL: {self.url}
-                Tag: {self.url_alt}
                 )"""
