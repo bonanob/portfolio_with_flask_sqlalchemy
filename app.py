@@ -24,9 +24,9 @@ def new():
                               description=request.form['desc'],
                               skills=request.form['skills'],
                               url=request.form['github'])
-        print(new_project)
         db.session.add(new_project)
         db.session.commit()
+        return redirect(url_for('index'))
     return render_template('projectform.html', projects=all_projects)
 
 
@@ -37,15 +37,29 @@ def detail(id):
     return render_template('detail.html', projects=all_projects, project=project)
 
 
-@app.route('/projects/<id>/edit')
+@app.route('/projects/<id>/edit', methods=['GET', 'POST'])
 def edit(id):
     all_projects = Project.query.all()
-    return render_template('index.html', projects=all_projects)
+    project = Project.query.get_or_404(id)
+    if request.form:
+        project.created = datetime.datetime.strptime(
+            request.form['date'], "%Y-%m")
+        project.title = request.form['title']
+        project.description = request.form['desc']
+        project.skills = request.form['skills']
+        project.url = request.form['github']
+        db.session.commit()
+        print(project)
+        return redirect(url_for('index'))
+    return render_template('edit.html', projects=all_projects, project=project)
 
 
 @app.route('/project/<id>/delete')
 def delete(id):
-    return render_template('index.html')
+    project = Project.query.get_or_404(id)
+    db.session.delete(project)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 
 @app.errorhandler(404)
@@ -56,6 +70,7 @@ def not_found(error):
 if __name__ == '__main__':
     db.create_all()
     project1 = Project(title="Number Guessing Game",
+                       created=datetime.datetime(2018, 6, 1),
                        description="""
                             Objective: Guess a number 1-10 with the lowest number of tries.<br>
                             
