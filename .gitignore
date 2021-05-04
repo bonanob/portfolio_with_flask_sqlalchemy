@@ -4,3 +4,4 @@ env
 .DS_Store
 .pytest_cache
 .idea
+existing_projects.py
