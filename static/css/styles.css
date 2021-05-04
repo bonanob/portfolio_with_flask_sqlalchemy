@@ -377,6 +377,7 @@ Description - Detail
     text-align: center;
     padding-right: 5%;
     padding-left: 5%;
+    padding-bottom: 4rem;
 }
 
 #triangle5 {
@@ -395,9 +396,20 @@ Description - Detail
     margin-bottom: 3rem;
 }
 
+#project-desc h5 {
+    font-size: 130%;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 1.5rem;
+    padding-bottom: none;
+
+}
+
 #project-desc p {
     text-align: left;
-    padding-bottom: 4rem;
+    /* padding-bottom: 4rem; */
+    padding-bottom: none;
+    margin-bottom: 0px;
 }
 
 #triangle6 {
@@ -566,6 +578,19 @@ EXCEEDS - About Page
 }
 
 /*******
+404
+*******/
+#page-404 .fa-stethoscope {
+    font-size: 100px;
+    /* margin-bottom: 4rem; */
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+    color: var(--accent);
+}
+
+
+
+/*******
 Media Queries
 *******/
 
@@ -650,6 +675,7 @@ Media Queries
     #project-desc  {
         padding-right: 15%;
         padding-left: 15%;
+        padding-bottom: 4rem;
     }
 
     #form input,

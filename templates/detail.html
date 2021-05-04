@@ -19,9 +19,17 @@
 <section id="project-desc">
     <div id="triangle5"></div>
     <h2>Description</h2>
+    {% for desc in project.description.split('\n') %}
+    {% if desc.strip()[-1] == ':' %}
+    <h5>
+        {{ desc }}
+    </h5>
+    {% else %}
     <p>
-        {{ project.description }}
+        {{ desc }}
     </p>
+    {% endif %}
+    {% endfor %}
     <div id="triangle6"></div>
 </section>
 <section id="edit-delete">
